@@ -7,7 +7,7 @@ def dlProgress(count, blockSize, totalSize):
 
 counter=0
 
-choice=raw_input('Which podcast do you want to download? (Pick a number)\n\n1.) Rundown\n2.) KFC Radio\n3.) Pardon My Take\n4.) Dave Portnoy Show\n5.) Kat Timpf Show\n6.) Daily Mail\n\nEnter number: ' )
+choice=raw_input('Which podcast do you want to download? (Pick a number)\n\n1.) Rundown\n2.) KFC Radio\n3.) Pardon My Take\n4.) Dave Portnoy Show\n5.) Kat Timpf Show\n6.) Daily Mail\n7.) Mailtime\n8.) Caleb Pressley Show\n\nEnter number: ' )
 if choice=='1':
 	url='http://www.podcastone.com/barstool-rundown'
 	path='Rundown/'
@@ -26,6 +26,13 @@ elif choice=='5':
 elif choice=='6':
 	url='http://podcastone.com/daily-mail'
 	path='DailyMail/'
+elif choice=='7':
+	url='http://podcastone.com/mailtime'
+	path='MailTime/'
+elif choice=='8':
+	url='http://podcastone.com/the-caleb-pressley-show'
+	path='CalebPressleyShow/'
+
 else:
 	print 'Please rerun and pick an appropriate number'
 	print
