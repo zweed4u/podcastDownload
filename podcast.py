@@ -1,13 +1,13 @@
 import sys, urllib, requests
 
 def dlProgress(count, blockSize, totalSize):
-      percent = int(count*blockSize*100/totalSize)
-      sys.stdout.write("\r" + name + "...%d%%" % percent)
-      sys.stdout.flush()
+	percent = int(count*blockSize*100/totalSize)
+	sys.stdout.write("\r" + name + "...%d%%" % percent)
+	sys.stdout.flush()
 
 counter=0
 
-choice=raw_input('Which podcast do you want to download? (Pick a number)\n\n1.) Rundown\n2.) KFC Radio\n3.) Pardon My Take\n4.) Dave Portnoy Show\n\nEnter number: ' )
+choice=raw_input('Which podcast do you want to download? (Pick a number)\n\n1.) Rundown\n2.) KFC Radio\n3.) Pardon My Take\n4.) Dave Portnoy Show\n5.) Kat Timpf Show\n\nEnter number: ' )
 if choice=='1':
 	url='http://www.podcastone.com/barstool-rundown'
 	path='Rundown/'
@@ -20,6 +20,9 @@ elif choice=='3':
 elif choice=='4':
 	url='http://www.podcastone.com/the-dave-portnoy-show'
 	path='DavePortnoyShow/'
+elif choice=='5':
+	url='http://www.podcastone.com/the-kat-timpf-show'
+	path='KatTimpfShow/'
 else:
 	print 'Please rerun and pick an appropriate number'
 	print
@@ -29,8 +32,10 @@ num=raw_input('How many podcast do you want to download? (11 MAX) ')
 try:
 	if int(num)<0 or int(num)>12:
 		print 'Out of bounds\nPlease rerun and pick a number between 1 and 11'
+		sys.exit()
 except:
 	print 'Choice was NaN\nPlease rerun and try again.\n'
+	sys.exit()
 
 print 
 session=requests.session()
