@@ -2,7 +2,7 @@ import sys, urllib, requests
 
 def dlProgress(count, blockSize, totalSize):
 	percent = int(count*blockSize*100/totalSize)
-	sys.stdout.write("\r" + name + "...%d%%" % percent)
+	sys.stdout.write("\r" + date+' // '+name + "...%d%%" % percent)
 	sys.stdout.flush()
 
 counter=0
@@ -45,12 +45,13 @@ session=requests.session()
 r=session.get(url, headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'})
 
 while counter<int(num):
+	date=r.content.split('float:right; width:70px; text-align:right;">')[counter+1].split('&nbsp;')[0].replace('/','-')
 	link=r.content.split('Download'+str(counter))[0].rsplit('href="',1)[1].replace('\n','').split('" onmouseup=')[0]
 	name=r.content.split('Download'+str(counter))[0].rsplit('optLabel="',1)[1].split('" category=')[0].replace('/','-')
 	print str(counter+1),'Saving...'
-	urllib.urlretrieve(link, path+name+'.mp3', reporthook=dlProgress)
+	urllib.urlretrieve(link, path+date+' :: '+name+'.mp3', reporthook=dlProgress)
 	print
-	print name,'saved.'
+	print date+' // '+name,'saved.'
 	counter+=1
 	print 
 print 
