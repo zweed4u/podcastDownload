@@ -1,9 +1,5 @@
 import sys, urllib, requests
-
-def dlProgress(count, blockSize, totalSize):
-	percent = int(count*blockSize*100/totalSize)
-	sys.stdout.write("\r" + date+' // '+name + "...%d%%" % percent)
-	sys.stdout.flush()
+from clint.textui import progress
 
 counter=0
 
@@ -56,9 +52,15 @@ while counter<int(num):
 	link=r.content.split('Download'+str(counter))[0].rsplit('href="',1)[1].replace('\n','').split('" onmouseup=')[0]
 	name=r.content.split('Download'+str(counter))[0].rsplit('optLabel="',1)[1].split('" category=')[0].replace('/','-')
 	print str(counter+1),'Saving...'
-	urllib.urlretrieve(link, path+date+' :: '+name+'.mp3', reporthook=dlProgress)
-	print
-	print date+' // '+name,'saved.'
+	res = session.get(link, stream=True)
+	print date+' // '+name 
+	with open(path+date+' :: '+name+'.mp3', 'wb') as f:
+	    total_length = int(res.headers.get('content-length'))
+	    for chunk in progress.bar(res.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
+	        if chunk:
+	            f.write(chunk)
+	            f.flush()
+	print 'Saved.'
 	counter+=1
 	print 
 print 
