@@ -3,7 +3,7 @@ from clint.textui import progress
 
 counter=0
 
-choice=raw_input('Which podcast do you want to download? (Pick a number)\n\n1.) Rundown\n2.) KFC Radio\n3.) Pardon My Take\n4.) Dave Portnoy Show\n5.) Kat Timpf Show\n6.) Daily Mail\n7.) Mailtime\n8.) Caleb Pressley Show\n\nEnter number: ' )
+choice=raw_input('Which podcast do you want to download? (Pick a number)\n\n1.) Rundown\n2.) KFC Radio\n3.) Pardon My Take\n4.) Dave Portnoy Show\n5.) Kat Timpf Show\n6.) Daily Mail\n7.) Mailtime\n8.) Caleb Pressley Show\n9.) The PodFathers\n10.) Pick Em\n\nEnter number: ' )
 if choice=='1':
 	url='http://www.podcastone.com/barstool-rundown'
 	path='Rundown/'
@@ -28,7 +28,12 @@ elif choice=='7':
 elif choice=='8':
 	url='http://podcastone.com/the-caleb-pressley-show'
 	path='CalebPressleyShow/'
-
+elif choice=='9':
+	url='http://www.podcastone.com/the-podfathers'
+	path='PodFathers/'
+elif choice=='10':
+	url='http://www.podcastone.com/barstool-pick-em'
+	path='PickEm/'
 else:
 	print 'Please rerun and pick an appropriate number'
 	print

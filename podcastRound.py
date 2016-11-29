@@ -3,8 +3,8 @@ from clint.textui import progress
 
 counter=0
 pathCount=0
-urlPick=['barstool-rundown','KFC-Radio','pardon-my-take','the-dave-portnoy-show','the-kat-timpf-show','daily-mail','mailtime','the-caleb-pressley-show']
-pathPick=['Rundown/','KFCRadio/','PardonMyTake/','DavePortnoyShow/','KatTimpfShow/','DailyMail/','MailTime/','CalebPressleyShow/']
+urlPick=['barstool-rundown','KFC-Radio','pardon-my-take','the-dave-portnoy-show','the-kat-timpf-show','daily-mail','mailtime','the-caleb-pressley-show','the-podfathers','barstool-pick-em']
+pathPick=['Rundown/','KFCRadio/','PardonMyTake/','DavePortnoyShow/','KatTimpfShow/','DailyMail/','MailTime/','CalebPressleyShow/','PodFathers/','PickEm/']
 
 print 
 session=requests.session()
